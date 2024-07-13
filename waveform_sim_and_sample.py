@@ -12,10 +12,10 @@ import DataSampleAndTransmit
 # constants
 DATA_FREQUENCY = 0.1
 SAMPLE_RATE = 1
-TRANSMIT_RATE = 0.25
-TIME_STEP = .01
+TRANSMIT_RATE = 1.25
+TIME_STEP = .05
 DATA_AMPLITUDE = 1
-NUM_ITERATIONS = 5000
+NUM_ITERATIONS = 1000
 
 # create the Arbitrary waveform generator
 awpg1 = ArbitraryWaveformPointGenerator.ArbitraryWaveformPointGenerator(DATA_AMPLITUDE, DATA_FREQUENCY, 0)
@@ -32,5 +32,6 @@ for i in range(NUM_ITERATIONS):
     t = t + TIME_STEP
 
 
-data1.plot_data_buffer()
+data1.plot_transmitted_data()
+data1.plot_sampled_data()
     

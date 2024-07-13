@@ -46,7 +46,7 @@ class DataSampleAndTransmit:
                 self.transmitted_data.append((time,0))
             self.next_transmit_time = self.next_transmit_time + self.transmit_period
             
-    def plot_data_buffer(self):
+    def plot_all(self):
         """
         Plots the data stored in the buffer.
         """
@@ -57,7 +57,42 @@ class DataSampleAndTransmit:
         sample_indices, values = zip(*self.data_sample_buffer)
         plt.scatter(sample_indices, values, marker='o', color='b', label='Sample Data')
         sample_indices, values = zip(*self.transmitted_data)
-        plt.scatter(sample_indices, values, marker='o', color='r', label='Sample Data')
+        plt.scatter(sample_indices, values, marker='o', color='r', label='Transmitted Data')
+        plt.xlabel("Time")
+        plt.ylabel("Value")
+        plt.title("Sampled Data")
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+
+    def plot_transmitted_data(self):
+        """
+        Plots the data stored in the buffer.
+        """
+        if not self.data_sample_buffer:
+            print("No data to plot.")
+            return
+
+        sample_indices, values = zip(*self.transmitted_data)
+        plt.scatter(sample_indices, values, marker='o', color='r', label='Transmitted Data')
+        plt.xlabel("Time")
+        plt.ylabel("Value")
+        plt.title("Sampled Data")
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+    def plot_sampled_data(self):
+        """
+        Plots the data stored in the buffer.
+        """
+        if not self.data_sample_buffer:
+            print("No data to plot.")
+            return
+
+        sample_indices, values = zip(*self.data_sample_buffer)
+        plt.scatter(sample_indices, values, marker='o', color='b', label='Sample Data')
         plt.xlabel("Time")
         plt.ylabel("Value")
         plt.title("Sampled Data")
